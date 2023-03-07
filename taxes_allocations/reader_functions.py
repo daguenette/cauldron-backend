@@ -17,28 +17,28 @@ Dataframes:
 import pandas as pd
 
 ## Quebec Tax Brackets & Rates
-qc_tax_data = pd.read_csv('./data/tax_calculator_data_quebec_tax.csv')
+qc_tax_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_quebec_tax.csv')
 
 ## Canada Tax Brackets & Rates
-canada_tax_data = pd.read_csv('./data/tax_calculator_data_allocation_canada.csv')
+canada_tax_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_canada.csv')
 
 ## QPP Brackets & Contributions
-qpp_data = pd.read_csv('./data/tax_calculator_data_qpp.csv')
+qpp_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_qpp.csv')
 
 ## QPIP Rate & Maximum
-qpip_data = pd.read_csv('./data/tax_calculator_data_qpip.csv')
+qpip_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_qpip.csv')
 
 ## EI Preniums Rates & Maximum
-ei_preniums_data = pd.read_csv('./data/tax_calculator_data_ei_preniums.csv')
+ei_preniums_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_ei_preniums.csv')
 
 ## BPA
-bpa_data = pd.read_csv('./data/tax_calculator_data_bpa.csv')
+bpa_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_bpa.csv')
 
 ## Allocation QC
-allocation_qc_data = pd.read_csv('./data/tax_calculator_data_allocation_qc.csv')
+allocation_qc_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_qc.csv')
 
 ## Allocation Canada
-allocation_canada_data = pd.read_csv('./data/tax_calculator_data_allocation_canada.csv')
+allocation_canada_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_canada.csv')
 
 ## Wealthsimple Data -
-wealthsimple_data = pd.read_csv('./data/tax_calculator_data_wealthsimple.csv')
+wealthsimple_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_wealthsimple.csv')
