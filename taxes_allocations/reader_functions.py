@@ -34,8 +34,11 @@ ei_preniums_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_ei_pr
 ## BPA
 bpa_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_bpa.csv')
 
-## Allocation QC
-allocation_qc_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_qc.csv')
+## Allocation QC Single Parent
+allocation_qc_single_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_qc_single.csv')
+
+## Allocation QC Two Parent
+allocation_qc_two_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_qc_two.csv')
 
 ## Allocation Canada
 allocation_canada_data = pd.read_csv('taxes_allocations/data/tax_calculator_data_allocation_canada.csv')

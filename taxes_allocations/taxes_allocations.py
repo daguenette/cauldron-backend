@@ -212,7 +212,7 @@ def number_to_text_children(children: int) -> str:
 
     return children
 
-def calculate_allocation_qc(family_income: float, children: int) -> float:
+def calculate_allocation_qc(family_income: float, children: int, familty_type) -> float:
     """Calculate the annual allocation for Quebec citizen with children
 
     Args:
@@ -225,17 +225,21 @@ def calculate_allocation_qc(family_income: float, children: int) -> float:
 
     if children == 0:
         return 0
+    
+    children = number_to_text_children(children)
+    
+    if familty_type == "Single":
+        brackets = reader_functions.allocation_qc_single_data['family_income'].to_numpy()
+        allocation = reader_functions.allocation_qc_single_data[children].to_numpy()
     else:
-        children = number_to_text_children(children)
-
-        brackets = reader_functions.allocation_qc_data['family_income'].to_numpy()
-        allocation = reader_functions.allocation_qc_data[children].to_numpy()
+        brackets = reader_functions.allocation_qc_two_data['family_income'].to_numpy()
+        allocation = reader_functions.allocation_qc_two_data[children].to_numpy()
         
-        for i in range(len(brackets) -1):
-            if family_income <= brackets[i]:
-                return allocation[i]
+    for i in range(len(brackets) -1):
+        if family_income <= brackets[i]:
+            return allocation[i]
 
-        return allocation[-1]
+    return allocation[-1]
 
 def calculate_allocation_canada(family_income: float, children: int) -> float:
     """Calculate the annual allocation for Canadian citizen with children
