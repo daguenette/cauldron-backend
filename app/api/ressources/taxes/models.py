@@ -11,5 +11,5 @@ class Taxes(Base):
     salary_income = Column(Integer)
     salary_hours = Column(Integer)
 
-# @TODO replace with alembic
-Base.metadata.create_all(engine)
+# # @TODO replace with alembic
+# Base.metadata.create_all(engine)

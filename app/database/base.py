@@ -10,7 +10,7 @@ url = URL.create(
     username=settings.DATABASE_USERNAME,
     password=settings.DATABASE_PASSWORD,
     host=settings.DATABASE_HOST,
-    database=settings.DATABASE,
+    database=settings.DATABASE_NAME,
     port=int(settings.DATABASE_PORT)
 )
 
@@ -19,6 +19,8 @@ engine = create_engine(url)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+
+metadata = Base.metadata
 
 def get_db():
     db = SessionLocal()
