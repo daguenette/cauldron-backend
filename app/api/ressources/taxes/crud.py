@@ -1,14 +1,24 @@
+"""
+Description: The file containing the crud operations for the taxes resource.
+"""
+
+## -- 3rd Party Imports -- ##
+
 from sqlalchemy.orm import Session
 import typing as t
 
+## -- Project Imports -- ##
+
 from . import models, schemas
 
-# GET Resource (Taxes)
-def get_taxes(db: Session, skip: int = 0, limit: int = 100) -> t.List[schemas.Taxes]:
+## -- Crud Operations -- ##
+
+# Get all entries of taxes declarations
+def get_all_taxes(db: Session, skip: int = 0, limit: int = 100) -> t.List[schemas.Taxes]:
     
     return db.query(models.Taxes).offset(skip).limit(limit).all()
 
-# POST Resource (Taxes)
+# Create a new entry of taxes declarations
 def create_taxes(db: Session, taxes: schemas.Taxes):
 
     db_taxes= models.Taxes(

@@ -1,9 +1,19 @@
+"""
+Description: The file containing the SQLAlchemy declarative base and database connection setup.
+"""
+
+## -- 3rd Party Imports -- ##
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.engine import URL
 
+## -- Project Imports -- ##
+
 from app.config import settings
+
+## -- Database Connection Setup -- ##
 
 url = URL.create(
     drivername=settings.DATABASE_DRIVERNAME,

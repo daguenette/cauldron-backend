@@ -1,16 +1,28 @@
-from fastapi import FastAPI, Response
+"""
+Description: The main application entry point, where you define and configure the FastAPI app instance.
+"""
+
+## -- 3rd Party Imports -- ##
+
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.base import api_router
-from fastapi.responses import JSONResponse
 import uvicorn
+
+## -- Project Imports -- ##
+
+from app.api.base import api_router
+from app.config import settings
+
+## -- Init FastAPI & Include Router -- ##
 
 app = FastAPI()
 app.include_router(api_router)
 
-# Middleware setup
+## -- Add Middleware -- ##
+
 origins = [
-    "http://localhost:5173",
-    "localhost:5173"
+    settings.ORIGIN_URL1,
+    settings.ORIGIN_URL2
 ]
 
 app.add_middleware(
@@ -22,15 +34,7 @@ app.add_middleware(
     expose_headers=["Content-Range"]
 )
 
-@app.get('/')
-async def read_taxes(response: Response):
-    content = {"Hello World": "My API"}
-    headers = {"Access-Control-Expose-Headers": "Content-Range", "Content-Range": "taxes 0-24/319"}
-    return JSONResponse(content=content, headers=headers)
-
+## -- Start Server -- ##
 
 def start():
-    uvicorn.run(app, port=8001, log_level="debug")
-
-if __name__ == "__main__":
-    start()
+    uvicorn.run(app, port=int(settings.API_PORT), log_level="debug")

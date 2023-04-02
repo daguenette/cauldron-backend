@@ -1,5 +1,16 @@
-from sqlalchemy import Column, Integer, String, Boolean
-from app.database.base import Base, engine
+"""
+Description: The file containing SQLAlchemy models for taxes resource.
+"""
+
+## -- 3rd Party Imports -- ##
+
+from sqlalchemy import Column, Integer, String
+
+## -- Project Imports -- ##
+
+from app.database.base import Base
+
+## -- SQLAlchemy Models For Taxes Resource -- ##
 
 class Taxes(Base):
     __tablename__ = "taxes"
@@ -10,6 +21,3 @@ class Taxes(Base):
     year = Column(Integer)
     salary_income = Column(Integer)
     salary_hours = Column(Integer)
-
-# # @TODO replace with alembic
-# Base.metadata.create_all(engine)
